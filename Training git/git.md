@@ -14,37 +14,67 @@
 ### `git init`
 * Lệnh `git init` để khởi tạo một kho chứa `Git` trong thư mục hiện tại.
 * Các tệp được theo dõi bởi `Git` sẽ được lưu trong thư mục `.git`.
+* Cú pháp:
+    ```bash
+    git init
+    ```
 
 ### `git commit`
 * Câu lệnh `git commit` sẽ lưu lại các thay đổi của bạn vào `git`.
-* Cấu trúc của câu lệnh: `git commit -m"message"`
+* Cú pháp:
+    ```bash
+    git commit -m "message"
+    ```
+    * `-m` là tùy chọn cho phép bạn nhập một thông điệp mô tả cho commit.
+    * `message` là thông điệp mô tả cho commit.
 
 ### `git push`
 * Câu lệnh `git push` sẽ đẩy các thay đổi của bạn lên `git`.
-* Cấu trúc của câu lệnh: `git push origin <branch>`
-* Trong đó `origin` là tên của `remote` và `<branch>` là tên của `branch` mà bạn muốn đẩy lên.
+* Cú pháp:
+    ```bash
+    git push origin <branch>
+    ```
+    * `origin` là tên của remote repository.
+    * `<branch>` là tên của branch.
 
 ### `git pull`
 * Câu lệnh `git pull` sẽ lấy các thay đổi từ `git` về máy tính của bạn.
-* Cấu trúc của câu lệnh: `git pull origin <branch>`
-* Trong đó `origin` là tên của `remote` và `<branch>` là tên của `branch` mà bạn muốn lấy về.
+* Cú pháp:
+    ```bash
+    git pull origin <branch>
+    ```
+    * `origin` là tên của remote repository.
+    * `<branch>` là tên của branch.
 
 ### `git remote`
 * Lệnh `git remote` được sử dụng để hiển thị danh sách các remote repository.
-* Cấu trúc của câu lệnh: `git remote add origin <url>`
-* `origin` là tên của remote repository.
+* Cú pháp:
+    ```bash
+    git remote
+    ```
+
 
 ### `git merge`
 * Lệnh `git merge` được sử dụng để hợp nhất các nhánh khác vào nhánh hiện tại.
-* Cấu trúc của câu lệnh: `git merge <branch>`
-* `<branch>` là tên của nhánh cần hợp nhất.
+* Cú pháp:
+    ```bash
+    git merge <branch>
+    ```
+    `<branch>` là tên của branch.
+
 
 ### `git branch`
 * Lệnh `git branch` được sử dụng để hiển thị danh sách các nhánh.
-* Cấu trúc của câu lệnh: `git branch <branch>`
-* `<branch>` là tên của nhánh cần tạo.
+* Cú pháp:
+    ```bash
+    git branch
+    ```
+
 
 ### `git fetch`
 * Lệnh `git fetch` được sử dụng để lấy các thay đổi từ `remote` về `local`.
-* Cấu trúc của câu lệnh: `git fetch <remote>`
-* `<remote>` là tên của `remote` repository.
+* Cú pháp:
+    ```bash
+    git fetch <remote>
+    ```
+    `<remote>` là tên của remote repository.

@@ -1,80 +1,136 @@
-# Git
-## Khái niệm cơ bản
-### Git là gì?
-`Git` là một hệ thống quản lý phiên bản phân tán (`Distributed Version Control System` - `DVCS`).
-### Git hoạt động như thế nào?
+# Khái niệm cơ bản
+## Git là gì?
+
+`Git` là một hệ thống quản lý phiên bản phân tán (Distributed Version Control System - `DVCS`).
+
+## Git hoạt động như thế nào?
+
 * `Git` là một tập hợp các `snapshot` của một hệ thống tập tin.
+
 * Mỗi lần `commit`, Git sẽ "chụp" và tạo ra một snapshot cùng một tham chiếu tới snapshot đó.
+
 * Để hiệu quả, nếu các tệp không thay đổi, Git sẽ không lưu trữ lại file.
 
 <img src="https://user-images.githubusercontent.com/84316258/203686786-e039e80a-1863-4399-921b-26fb5954ec7f.png" width="500" />
 
-## Các lệnh cơ bản
+# Phân biệt remote repo và local repo
 
-### `git init`
-* Lệnh `git init` để khởi tạo một kho chứa `Git` trong thư mục hiện tại.
-* Các tệp được theo dõi bởi `Git` sẽ được lưu trong thư mục `.git`.
-* Cú pháp:
+* `remote repo`: là kho chứa trên mạng, nơi nhiều người làm việc chung, có thể là github, gitlab, bitbucket, ...
+
+* `local repo`: là kho chứa trên máy tính cá nhân, nơi mà mỗi người làm việc độc lập, có thể là git bash, git gui, git desktop, ...
+
+* `origin`: là tên mặc định của remote repo, có thể đổi tên.
+
+<img src="https://user-images.githubusercontent.com/84316258/203879233-ddfc1198-6e2c-474d-9c63-38024ea776ba.png" width="500" />
+
+# Bắt đầu
+
+## Cài đặt Git
+Download [git](https://git-scm.com/downloads) và cài đặt.
+## Cấu hình Git
+* Cấu hình tên người dùng
+    ```bash
+    git config --global user.name "Tên người dùng"
+    ```
+* Cấu hình email
+    ```bash
+    git config --global user.email "Email"
+    ```
+* Kiểm tra cấu hình
+    ```bash
+    git config --list
+    ```
+    <img src="https://user-images.githubusercontent.com/84316258/203887359-a51bf3b0-ffb6-45f7-97b9-ebb2c14c0e85.png" width="500" />
+
+## Tạo kho chứa
+
+* Tạo một thư mục mới
+    ```bash
+    mkdir tên_thư_mục
+    ```
+
+* Chuyển đến thư mục vừa tạo
+    ```bash
+    cd tên_thư_mục
+    ```
+
+* Khởi tạo git
     ```bash
     git init
     ```
 
-### `git commit`
-* Câu lệnh `git commit` sẽ lưu lại các thay đổi của bạn vào `git`.
-* Cú pháp:
+* Kiểm tra trạng thái
     ```bash
-    git commit -m "message"
+    git status
     ```
-    * `-m` là tùy chọn cho phép bạn nhập một thông điệp mô tả cho commit.
-    * `message` là thông điệp mô tả cho commit.
+    <img src="https://user-images.githubusercontent.com/84316258/203887837-4909892e-ac9e-4b1e-b013-ff5bb8648f78.png" width="500" />
 
-### `git push`
-* Câu lệnh `git push` sẽ đẩy các thay đổi của bạn lên `git`.
-* Cú pháp:
-    ```bash
-    git push origin <branch>
-    ```
-    * `origin` là tên của remote repository.
-    * `<branch>` là tên của branch.
+## Liên kết với remote repo
 
-### `git pull`
-* Câu lệnh `git pull` sẽ lấy các thay đổi từ `git` về máy tính của bạn.
-* Cú pháp:
+* Liên kết với remote repo
     ```bash
-    git pull origin <branch>
-    ```
-    * `origin` là tên của remote repository.
-    * `<branch>` là tên của branch.
-
-### `git remote`
-* Lệnh `git remote` được sử dụng để hiển thị danh sách các remote repository.
-* Cú pháp:
-    ```bash
-    git remote
+    git remote add origin đường_dẫn
     ```
 
-
-### `git merge`
-* Lệnh `git merge` được sử dụng để hợp nhất các nhánh khác vào nhánh hiện tại.
-* Cú pháp:
+* Kiểm tra remote repo
     ```bash
-    git merge <branch>
-    ```
-    `<branch>` là tên của branch.
-
-
-### `git branch`
-* Lệnh `git branch` được sử dụng để hiển thị danh sách các nhánh.
-* Cú pháp:
-    ```bash
-    git branch
+    git remote -v
     ```
 
+    <img src="https://user-images.githubusercontent.com/84316258/203888472-e6e4366e-0b81-44d7-a5c6-d25427e08717.png" width="500" />
 
-### `git fetch`
-* Lệnh `git fetch` được sử dụng để lấy các thay đổi từ `remote` về `local`.
-* Cú pháp:
-    ```bash
-    git fetch <remote>
-    ```
-    `<remote>` là tên của remote repository.
+## Trạng thái của các file
+* `Untracked`: là file chưa được theo dõi bởi Git.
+
+    VD: trong thư mục có 1 file `git.md` chưa được theo dõi bởi Git.
+    <img src="https://user-images.githubusercontent.com/84316258/203889061-bd2cbb5e-86ce-4a28-96f5-75bedc751ddc.png" width="500" />
+* `Unmodified`: là file đã được theo dõi bởi Git nhưng chưa được chỉnh sửa.
+* `Modified`: là file đã được theo dõi bởi Git và đã được chỉnh sửa.
+* `Staged`: là file đã được theo dõi bởi Git và đã được chỉnh sửa và đã được chuẩn bị để commit.
+
+<img src="https://user-images.githubusercontent.com/84316258/203888579-defbbd2e-3a45-4c18-bf0a-15ae97c23b17.png" width="500" />
+
+## Thêm file vào kho chứa
+
+* Thêm tất cả các file
+```bash
+git add .
+```
+* Thêm một file
+```bash
+git add tên_file
+```
+
+## Commit
+Khi cần lưu lại các thay đổi, ta sẽ `commit`. Sau khi `commit`, các thay đổi sẽ được lưu lại trên local repo.
+* Commit với message
+```bash
+git commit -m "message"
+```
+
+<img src="https://user-images.githubusercontent.com/84316258/203890207-6e647a34-89b0-4f64-9d2d-339ccb31c44a.png" width="500" />
+
+## Push
+Khi cần đẩy các thay đổi lên remote repo, ta sẽ `push`.
+
+```bash
+git push -u origin main
+```
+
+<img src="https://user-images.githubusercontent.com/84316258/203891761-d708cacd-dea4-4c7f-b0a8-9d128ec34ac1.png" width="500" />
+
+## Pull
+Khi cần lấy các thay đổi từ remote repo về local repo, ta sẽ `pull`.
+
+```bash
+git pull origin main
+```
+
+# Cấu trúc `branch` trong Git
+* `master`: là branch mặc định của Git. Nó là branch chính của dự án.
+* Thông thường khi làm việc với Git, ta sẽ tạo ra các branch khác để phân chia công việc. Sau khi hoàn thành công việc, ta sẽ merge các branch vào branch `master`. Và một dự án, ngoài branch `master` thường có các branch sau:
+    * `develop`: là branch phụ của dự án. Nó được tạo ra từ branch `master` và dùng để phát triển các tính năng mới. Khi tính năng mới đã hoàn thành, ta sẽ merge branch `develop` vào branch `master`.
+
+    * `feature`: là branch phụ của dự án. Nó được tạo ra từ branch `master` và dùng để phát triển các tính năng mới. Khi tính năng mới đã hoàn thành, ta sẽ merge branch `feature` vào branch `master`.
+
+    <img src="https://user-images.githubusercontent.com/84316258/203892730-e2db8d2d-0f97-46f2-8b16-7f4f7ca6b93a.png" width="500" />

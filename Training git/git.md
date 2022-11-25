@@ -93,17 +93,16 @@ Download [git](https://git-scm.com/downloads) và cài đặt.
 ## Thêm file vào kho chứa
 
 * Thêm tất cả các file
-```bash
-git add .
-```
+    ```bash
+    git add .
+    ```
 * Thêm một file
-```bash
-git add tên_file
-```
+    ```bash
+    git add tên_file
+    ```
 
 ## Commit
 Khi cần lưu lại các thay đổi, ta sẽ `commit`. Sau khi `commit`, các thay đổi sẽ được lưu lại trên local repo.
-* Commit với message
 ```bash
 git commit -m "message"
 ```
@@ -134,3 +133,22 @@ git pull origin main
     * `feature`: là branch phụ của dự án. Nó được tạo ra từ branch `master` và dùng để phát triển các tính năng mới. Khi tính năng mới đã hoàn thành, ta sẽ merge branch `feature` vào branch `master`.
 
     <img src="https://user-images.githubusercontent.com/84316258/203892730-e2db8d2d-0f97-46f2-8b16-7f4f7ca6b93a.png" width="500" />
+* Để tạo branch mới, ta sử dụng lệnh:
+    ```bash
+    git branch tên_branch
+    ```
+* Khi cần làm việc với branch, ta sẽ dùng lệnh `checkout` để chuyển sang branch đó.
+
+    ```bash
+    git checkout tên_branch
+    ```
+
+* Để merge branch `feature` vào branch `master`, ta sẽ dùng lệnh:
+    ```bash
+    git checkout master
+    git merge feature
+    ```
+* Để xóa branch, ta sẽ dùng lệnh:
+    ```bash
+    git branch -d tên_branch
+    ```

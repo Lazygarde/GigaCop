@@ -83,7 +83,9 @@ Download [git](https://git-scm.com/downloads) và cài đặt.
 * `Untracked`: là file chưa được theo dõi bởi Git.
 
     VD: trong thư mục có 1 file `git.md` chưa được theo dõi bởi Git.
+    
     <img src="https://user-images.githubusercontent.com/84316258/203889061-bd2cbb5e-86ce-4a28-96f5-75bedc751ddc.png" width="500" />
+    
 * `Unmodified`: là file đã được theo dõi bởi Git nhưng chưa được chỉnh sửa.
 * `Modified`: là file đã được theo dõi bởi Git và đã được chỉnh sửa.
 * `Staged`: là file đã được theo dõi bởi Git và đã được chỉnh sửa và đã được chuẩn bị để commit.
